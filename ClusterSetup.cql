@@ -36,6 +36,10 @@ CREATE TABLE user (
         primary key (id)
     ) with comment = 'A table of users';
     
+// Create Secondary Index
+USE atom;
+CREATE INDEX ON user (authlevel);
+    
 // Insert User Data
 USE atom;
 insert into user (id, firstname, lastname, password, authlevel, created, lastlogin) 
