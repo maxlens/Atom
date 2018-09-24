@@ -1,7 +1,7 @@
 # Atom
 
 ## Cassandra Setup :
-> Use the commands in ClusterSetup.cql to setup the Cassandra Database, and some preliminary data.
+Use the commands in **ClusterSetup.cql** to setup the Cassandra Database, and some preliminary data.
 
 ## Some endpoints that can be tested. :+1:
 
