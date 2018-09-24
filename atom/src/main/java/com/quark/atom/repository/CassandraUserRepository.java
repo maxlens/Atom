@@ -3,6 +3,7 @@ package com.quark.atom.repository;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.cassandra.core.CassandraOperations;
 import org.springframework.stereotype.Repository;
 
@@ -13,11 +14,8 @@ import com.quark.atom.domain.User;
 @Repository
 public class CassandraUserRepository implements UserRepository {
 
-	private final CassandraOperations cassandraTemplate;
-
-	public CassandraUserRepository(CassandraOperations cassandraTemplate) {
-		this.cassandraTemplate = cassandraTemplate;
-	}
+	@Autowired
+	private CassandraOperations cassandraTemplate;
 
 	@Override
 	public void save(User user) {
