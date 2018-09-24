@@ -4,7 +4,7 @@
 UPDATE system.local SET cluster_name = 'Atom Cluster' where key='local';
 
 // Step 2-4:
-// In casandra.yaml make sure that the cluster_name is the exact same as what was entered in CQLSH.
+// In casandra.yaml make sure that the cluster_name is 'Atom Cluster'
 // run: nodetool flush system
 // Restart Cassandra
 
