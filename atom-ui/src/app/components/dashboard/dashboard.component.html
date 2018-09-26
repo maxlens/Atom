@@ -12,104 +12,42 @@
   </section>
 
   <div class="py-5 bg-light">
-    <div class="container">
-
-      <div class="row">
-        <div class="col-md-4">
-          <div class="card mb-4 box-shadow">
-            <div class="card-header mb-4 box-shadow">Deal on Toor Dal</div>
-            <div class="card-body">
-              <p class="card-text">Buy 2 Toor Dals packs and get 1 Free</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Order</button>
-                </div>
-                <small class="text-muted">9 mins</small>
-              </div>
-            </div>
+  <div class="container">
+  
+    <div class="row">
+      <ng-container *ngFor="let displayUser of users">
+      <div class="col-md-4">
+        <div class="card mb-4 box-shadow">
+          <div class="card-header mb-4 box-shadow bg-primary"><div class="font-weight-bold">User Information</div></div>
+          <div class="card-body">            
+            <div><div class="font-weight-bold">
+              User Id :
+            </div> {{displayUser.id}}</div>
+            <div><div class="font-weight-bold">
+              First Name :
+            </div> {{displayUser.firstName}}</div>
+            <div><div class="font-weight-bold">
+              Last Name :
+            </div> {{displayUser.lastName}}</div>
+            <div><div class="font-weight-bold">
+              Password :
+            </div> {{displayUser.password}}</div>
+            <div><div class="font-weight-bold">
+              Auth Level :
+            </div> {{displayUser.authLevel}}</div>
+            <div><div class="font-weight-bold">
+              Created :
+            </div> {{displayUser.created}}</div>
+            <div><div class="font-weight-bold">
+              Last Login :
+            </div> {{displayUser.lastLogin}}</div>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card mb-4 box-shadow">
-            <div class="card-header mb-4 box-shadow">Mazaa Sale</div>
-            <div class="card-body">
-              <p class="card-text">16 pack Mazaa for $9.99</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Order</button>
-                </div>
-                <small class="text-muted">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4 box-shadow">
-            <div class="card-header mb-4 box-shadow">Mango Sale</div>
-            <div class="card-body">
-              <p class="card-text">2 Dozen for $16.99</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Order</button>
-                </div>
-                <small class="text-muted">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-md-4">
-            <div class="card mb-4 box-shadow">
-              <div class="card-header mb-4 box-shadow">Deal on Toor Dal</div>
-              <div class="card-body">
-                <p class="card-text">Buy 2 Toor Dals packs and get 1 Free</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Order</button>
-                  </div>
-                  <small class="text-muted">9 mins</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card mb-4 box-shadow">
-              <div class="card-header mb-4 box-shadow">Mazaa Sale</div>
-              <div class="card-body">
-                <p class="card-text">16 pack Mazaa for $9.99</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Order</button>
-                  </div>
-                  <small class="text-muted">9 mins</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card mb-4 box-shadow">
-              <div class="card-header mb-4 box-shadow">Mango Sale</div>
-              <div class="card-body">
-                <p class="card-text">2 Dozen for $16.99</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Order</button>
-                  </div>
-                  <small class="text-muted">9 mins</small>
-                </div>
-              </div>
-            </div>
-          </div>
-
       </div>
+    </ng-container>
     </div>
-    
+  
+  </div>
   </div>
 
 </main>
