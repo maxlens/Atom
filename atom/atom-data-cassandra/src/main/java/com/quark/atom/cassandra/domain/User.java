@@ -1,4 +1,4 @@
-package com.quark.atom.domain;
+package com.quark.atom.cassandra.domain;
 
 import java.io.Serializable;
 import java.util.Date;

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.quark.atom.domain.User;
+import com.quark.atom.cassandra.domain.User;
 import com.quark.atom.service.UserService;
 
 @RestController

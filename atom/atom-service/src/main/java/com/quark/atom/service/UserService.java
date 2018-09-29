@@ -3,7 +3,7 @@ package com.quark.atom.service;
 import java.util.List;
 import java.util.UUID;
 
-import com.quark.atom.domain.User;
+import com.quark.atom.cassandra.domain.User;
 
 public interface UserService {
 
