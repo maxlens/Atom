@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.quark.atom.mongodb.domain.User;
 import com.quark.atom.service.UserService;
 
-@RestController
-@RequestMapping("/api/v1/users")
+//@RestController
+//@RequestMapping("/api/v1/users")
 public class UserController {
 	
 	@Autowired
@@ -39,8 +39,8 @@ public class UserController {
 		return new User();
 	}
 	
-	@GetMapping("/authLevel/{level}")
+/*	@GetMapping("/authLevel/{level}")
 	public List<User> getByAuthLevel(@PathVariable("level") String authLevel ) {
 		return userService.findUsersWithAuthLevel(authLevel);
-	}
+	}*/
 }

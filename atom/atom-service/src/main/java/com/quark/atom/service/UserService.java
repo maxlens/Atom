@@ -37,12 +37,11 @@ public class UserService {
         }
         return User;
     }
-
  
-	public List<User> findUsersWithAuthLevel(String authLevel) {
+/*	public List<User> findUsersWithAuthLevel(String authLevel) {
 		log.info("Retrieve users with authLevel: {}", authLevel);
 		return this.userRepository.findByAuthLevel(authLevel);
-	}
+	}*/
 
 	public List<User> findAll() {
 		return this.userRepository.findAll();

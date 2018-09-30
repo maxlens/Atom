@@ -25,7 +25,7 @@ public class User implements Serializable {
 	private String firstName;
 	private String lastName;
 	private String password;
-	private String authLevel;
+	private String email;
 	private BsonTimestamp created;
 	private BsonTimestamp lastLogin;
 }
