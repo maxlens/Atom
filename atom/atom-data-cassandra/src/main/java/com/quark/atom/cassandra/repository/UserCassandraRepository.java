@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.quark.atom.cassandra.domain.User;
 
 @Repository
-public interface UserRepository extends CassandraRepository<User, UUID> {
+public interface UserCassandraRepository extends CassandraRepository<User, UUID> {
 
 	public List<User> findByAuthLevel(String authLevel);
 

@@ -1,18 +1,51 @@
 package com.quark.atom.service;
 
 import java.util.List;
-import java.util.UUID;
+import java.util.Optional;
 
-import com.quark.atom.cassandra.domain.User;
+import org.bson.types.ObjectId;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-public interface UserService {
+import com.quark.atom.mongodb.domain.User;
+import com.quark.atom.mongodb.repository.UserRepository;
 
-    User save(User user);
-    User update(User user);
-    User findOne(UUID uuid);
-    void delete(UUID uuid);
+/*import com.quark.atom.cassandra.domain.User;
+import com.quark.atom.cassandra.repository.UserRepository;*/
 
-    List<User> findAll();
-    List<User> findUsersWithAuthLevel(String authLevel);
+import lombok.extern.slf4j.Slf4j;
+
+@Service
+@Slf4j
+public class UserService {
+	
+	@Autowired
+	private UserRepository userRepository;
+	
+    public User save(User user) {
+        if (user.getId() == null) {
+            user.setId(ObjectId.get());
+        }
+        this.userRepository.save(user);
+        return user;
+}
+
+    public User update(User User) {
+        Optional<User> existingUserOpt = this.userRepository.findById(User.getId());
+        if (existingUserOpt.isPresent()) {
+            this.userRepository.save(existingUserOpt.get());
+        }
+        return User;
+    }
+
+ 
+	public List<User> findUsersWithAuthLevel(String authLevel) {
+		log.info("Retrieve users with authLevel: {}", authLevel);
+		return this.userRepository.findByAuthLevel(authLevel);
+	}
+
+	public List<User> findAll() {
+		return this.userRepository.findAll();
+	}
 
 }
