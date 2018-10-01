@@ -5,6 +5,7 @@ import java.util.List;
 import org.bson.types.ObjectId;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
@@ -15,6 +16,12 @@ import com.quark.atom.mongodb.domain.User;
 @RepositoryRestResource(collectionResourceRel = "mongousers", path="mongousers")
 public interface UserRepository extends MongoRepository<User, ObjectId> {
 	
+	// Default Pageable paths
+	// path = http://localhost:8080/mongousers{?page,size,sort}
+	
+	Page<User> findAll(Pageable pageable);
+	List<User> findAll(Sort sort);
+	
 	// path = http://localhost:8080/mongousers/search/findByFirstName?firstname=johndoe
 	public List<User> findByFirstName(@Param("firstname") String firstname);
 	
@@ -23,6 +30,7 @@ public interface UserRepository extends MongoRepository<User, ObjectId> {
 	public List<User> findByLastName(String lastname);
 	
 	// path = http://localhost:8080/mongousers/search/fnln?lastname=doe&firstname=john&page=0&size=5&sort=ascc
+	// path = http://localhost:8080/mongousers/search/fnln?lastname=n&firstname=e&page=0&size=5&sort=lastname,desc&sort=email,desc
 	@RestResource(path="fnln")
 	Page<User> findByLastNameContainingAndFirstNameContainingAllIgnoringCase(@Param("lastname") String lastname,
 			@Param("firstname") String firstname, Pageable pageable);
