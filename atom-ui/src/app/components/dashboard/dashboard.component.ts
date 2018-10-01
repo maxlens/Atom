@@ -14,12 +14,25 @@ export class DashboardComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.getUsers();
-    console.log('Users: ' + this.users);
+    this.getMongoUsers();
   }
 
   getUsers() {
-    this.userService.getUsers().subscribe(data => { this.users = data; });
+    this.userService.getUsers().subscribe((data: Array<User>) => {
+      this.users = data;
+    });
+  }
+
+  getCassandraUsers() {
+    this.userService.getCassandraUsers().subscribe((data: Array<User>) => {
+      this.users = data;
+    });
+  }
+
+  getMongoUsers() {
+    this.userService.getMongoUsers().subscribe((data: Array<User>) => {
+      this.users = data;
+    });
   }
 
 }
