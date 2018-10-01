@@ -1,0 +1,32 @@
+server:
+ port: 8080
+
+#===Spring Actuator props START=== 
+management:
+  security:
+    enabled: false
+    
+# Enable CORS (Disable in Production)    
+cors:
+  urls: http://localhost:4200
+
+# ===============================
+# = DATA SOURCE
+# ===============================
+spring:
+  data:
+   #Cassandra config
+    cassandra: 
+      keyspace-name: atom
+      contact-points: localhost
+      port: 9042
+      schema-action: CREATE_IF_NOT_EXISTS
+    #Mongo
+    mongodb:
+      uri: mongodb://atomapp:password123@localhost:27017
+      host: localhost
+      port: 27017
+      database: atom
+      username: admin
+    rest:
+      basePath: /mongo
