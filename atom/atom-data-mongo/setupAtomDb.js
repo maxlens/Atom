@@ -26,25 +26,45 @@ db.createUser(
    }
 )
 
-db.createCollection("user")
+// Authority Collection
+db.authority.drop()
+db.createCollection("authority")
+db.authority.insert([
+    {_id: 1, "name": "ROLE_USER"},
+    {_id: 2, "name": "ROLE_ADMIN"}
+    ])
+db.authority.find()
 
+//User Collection
+db.user.drop()
+db.createCollection("user")
 db.user.insert([{
+    "username" : "jsienfeld",
+    "password" : "$2a$04$1OiJzsX6i6BBFgmFzC50nu1rkFqkfErXac.RSu9lYfeE1WL/TH95a",
     "firstName" : "Jerry",
     "lastName" : "Sienfeld",
     "email" : "",
-    "password" : "",
-    "createdOn" : new Timestamp(),
-    "lastLogin" : new Timestamp()
+    "authorities" : [
+        {_id: 1, "name": "ROLE_USER"},
+        {_id: 2, "name": "ROLE_ADMIN"}
+    ],
+    "enabled" : true,
+    "createdOn" : new Date(),
+    "lastLogin" : new Date(),
+    "passwordResetDate" : new Date()
   },
 {
+    "username" : "ebenes",
+    "password" : "$2a$04$1OiJzsX6i6BBFgmFzC50nu1rkFqkfErXac.RSu9lYfeE1WL/TH95a",
     "firstName" : "Elaine",
     "lastName" : "Benes",
     "email" : "",
-    "password" : "",
-    "createdOn" : new Timestamp(),
-    "lastLogin" : new Timestamp()
+    "authorities" : [
+        {_id: 1, "name": "ROLE_USER"},
+    ],
+    "enabled" : true,
+    "createdOn" : new Date(),
+    "lastLogin" : new Date(),
+    "passwordResetDate" : new Date()
   }])
-  
-use atom
-  
 db.user.find()

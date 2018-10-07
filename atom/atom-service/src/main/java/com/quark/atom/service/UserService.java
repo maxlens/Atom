@@ -33,6 +33,7 @@ public class UserService {
     public User update(User User) {
         Optional<User> existingUserOpt = this.userRepository.findById(User.getId());
         if (existingUserOpt.isPresent()) {
+        	log.debug("saving user");
             this.userRepository.save(existingUserOpt.get());
         }
         return User;

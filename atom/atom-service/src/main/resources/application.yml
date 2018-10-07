@@ -29,4 +29,17 @@ spring:
       database: atom
       username: admin
     rest:
-      basePath: /mongo
+      basePath: /atom
+      
+# ================================
+# = SECURITY
+# ================================
+
+jwt:
+  header: Authorization
+  secret: RxZF6OxoqGwsCxPGOenHLcsAl05SPjy1HeryaqnXtzE144SaVJ7s4dXeZaK5w6S
+  expiration: 600
+  route:
+    authentication:
+      path: /auth
+      refresh: /refresh

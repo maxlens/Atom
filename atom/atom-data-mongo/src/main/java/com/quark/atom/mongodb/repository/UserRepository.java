@@ -17,25 +17,27 @@ import com.quark.atom.mongodb.domain.User;
 public interface UserRepository extends MongoRepository<User, ObjectId> {
 	
 	// Default Pageable paths
-	// path = http://localhost:8080/mongousers{?page,size,sort}
+	// path = http://localhost:8080/atom/mongousers{?page,size,sort}
 	
 	Page<User> findAll(Pageable pageable);
 	List<User> findAll(Sort sort);
 	
-	// path = http://localhost:8080/mongousers/search/findByFirstName?firstname=johndoe
+	User findByUsername(String username);
+	
+	// path = http://localhost:8080/atom/mongousers/search/findByFirstName?firstname=johndoe
 	public List<User> findByFirstName(@Param("firstname") String firstname);
 	
-	// path = http://localhost:8080/mongousers/search/lastname?lastname=janedoe
+	// path = http://localhost:8080/atom/mongousers/search/lastname?lastname=janedoe
 	@RestResource(path="lastname")
 	public List<User> findByLastName(String lastname);
 	
-	// path = http://localhost:8080/mongousers/search/fnln?lastname=doe&firstname=john&page=0&size=5&sort=ascc
-	// path = http://localhost:8080/mongousers/search/fnln?lastname=n&firstname=e&page=0&size=5&sort=lastname,desc&sort=email,desc
+	// path = http://localhost:8080/atom/mongousers/search/fnln?lastname=doe&firstname=john&page=0&size=5&sort=ascc
+	// path = http://localhost:8080/atom/mongousers/search/fnln?lastname=n&firstname=e&page=0&size=5&sort=lastname,desc&sort=email,desc
 	@RestResource(path="fnln")
 	Page<User> findByLastNameContainingAndFirstNameContainingAllIgnoringCase(@Param("lastname") String lastname,
 			@Param("firstname") String firstname, Pageable pageable);
 	
-	// path = http://localhost:8080/mongousers/search/findByLastNameAndFirstNameAllIgnoringCase?lastname=Sienfeld&firstname=Jerry
+	// path = http://localhost:8080/atom/mongousers/search/findByLastNameAndFirstNameAllIgnoringCase?lastname=Sienfeld&firstname=Jerry
 	User findByLastNameAndFirstNameAllIgnoringCase(@Param("lastname") String lastname, @Param("firstname") String firstname);
 
 	/* Do not expose Delete methods */
