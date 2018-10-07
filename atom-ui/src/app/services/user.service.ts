@@ -9,8 +9,8 @@ import { map } from 'rxjs/operators';
 })
 export class UserService {
   // baseUrl = '/api/v1/users';
-  // baseUrl = '/cassandrausers';
-  baseUrl = '/mongousers';
+  // baseUrl = '/atom/cassandrausers';
+  baseUrl = '/atom/mongousers';
 
   constructor(private httpClient: HttpClient) { }
 
