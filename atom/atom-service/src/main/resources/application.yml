@@ -8,7 +8,7 @@ management:
     
 # Enable CORS (Disable in Production)    
 cors:
-  urls: http://localhost:4200
+  urls: http://localhost:4200, http://localhost:8080
 
 # ===============================
 # = DATA SOURCE
@@ -30,6 +30,25 @@ spring:
       username: admin
     rest:
       basePath: /atom
+#============================
+# = MESSAGING
+#============================
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost
+      bindings:
+        invFileOutput:
+          contentType: application/json
+          destination: inventoryFile
+          producer:
+            header-mode: raw
+        invFileSink:
+          contentType: application/json
+          destination: inventoryFile
+          consumer:
+            header-mode: raw
       
 # ================================
 # = SECURITY
@@ -43,3 +62,10 @@ jwt:
     authentication:
       path: /auth
       refresh: /refresh
+      
+ #=======================
+ # APPLICATION PROPS
+ #=======================
+file:
+  dir:
+    invdata: C:\tmp\inventory

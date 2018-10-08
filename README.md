@@ -9,3 +9,6 @@ Use the commands in **ClusterSetup.cql** to setup the Cassandra Database, and so
 
 1) http://localhost:8080/api/v1/users
 2) http://localhost:8080/api/v1/users/authLevel/Guest
+
+
+Kafka/ZooKeeper install guide - https://kafka.apache.org/quickstart
