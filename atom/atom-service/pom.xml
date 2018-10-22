@@ -15,6 +15,7 @@
 
 	<properties>
 		<jjwt.version>0.9.1</jjwt.version>
+		<univocity-parsers.version>2.7.6</univocity-parsers.version>
 	</properties>
 
 	<dependencies>
@@ -54,6 +55,13 @@
 			<artifactId>jaxb-api</artifactId>
 		</dependency>
 
+	<!-- csv parser -->
+	<dependency>
+		<groupId>com.univocity</groupId>
+		<artifactId>univocity-parsers</artifactId>
+		<version>${univocity-parsers.version}</version>
+	</dependency>
+	
 		<!-- Kafka cloud stream -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
